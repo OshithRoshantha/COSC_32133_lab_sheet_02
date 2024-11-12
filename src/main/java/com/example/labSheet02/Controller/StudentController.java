@@ -33,6 +33,11 @@ public class StudentController {
         return studentServiceInstance.getStudentByYear(year);
     }
 
+    @GetMapping("/SMS/department/{id}")
+    public ResponseEntity<String> searchDepartmentById(@PathVariable long id){
+        return new ResponseEntity<>(studentServiceInstance.departmentById(id),HttpStatus.FOUND);
+    }
+
     @PostMapping("/SMS/add")
     public ResponseEntity<Student> addStudent(@RequestBody Student newStudent){
         return new ResponseEntity<>(studentServiceInstance.addStudent(newStudent),HttpStatus.CREATED);

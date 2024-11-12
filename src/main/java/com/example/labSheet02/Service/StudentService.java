@@ -9,6 +9,7 @@ public interface StudentService {
     Student searchStudent(long id);
     Student updateStudent(long id,Student updatedStudent);
     void removeStudent(long id);
+    String departmentById(long id);
     List<Student> getAllStudents();
     List<Student> getStudentByYear(int year);
 }

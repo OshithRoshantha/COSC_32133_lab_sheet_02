@@ -38,6 +38,11 @@ public class StudentController {
         return new ResponseEntity<>(studentServiceInstance.departmentById(id),HttpStatus.FOUND);
     }
 
+    @DeleteMapping("/SMS/unenroll/{year}")
+    public ResponseEntity<String> unenrollByYear(int year){
+        return new ResponseEntity<>("Unenrolled!",HttpStatus.OK);
+    }
+
     @PostMapping("/SMS/add")
     public ResponseEntity<Student> addStudent(@RequestBody Student newStudent){
         return new ResponseEntity<>(studentServiceInstance.addStudent(newStudent),HttpStatus.CREATED);

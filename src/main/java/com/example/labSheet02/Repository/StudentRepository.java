@@ -11,6 +11,9 @@ import com.example.labSheet02.Model.Student;
 public interface StudentRepository extends JpaRepository<Student,Long>{
     List<Student> findByYearOfEnrollment(int year);
 
-    @Query(value = "select department from student where id = :id", nativeQuery = true)
+    @Query(value="select department from student where id = :id", nativeQuery=true)
     String findDepartmentById(@Param("id") Long id);
+
+    @Query(value="delete from student where year_of_enrollment=:year", nativeQuery=true)
+    void removeEnrollments(@Param("year") int year);
 }

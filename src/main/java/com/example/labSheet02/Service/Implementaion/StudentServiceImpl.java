@@ -42,6 +42,10 @@ public class StudentServiceImpl implements StudentService{
         return matchedStudent;
     }
 
+    public void removeByYear(int year){
+        studentRepoInstance.removeEnrollments(year);
+    }
+
     public void removeStudent(long id){
         studentRepoInstance.deleteById(id);
     }

@@ -1,7 +1,5 @@
 package com.example.labSheet02.Model;
 
-import java.sql.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,5 +28,5 @@ public class Student {
     @Column(name = "department")
     private String department;
     @Column(name = "yearOfEnrollment")
-    private Date yearOfEnrollment;
+    private int yearOfEnrollment;
 }

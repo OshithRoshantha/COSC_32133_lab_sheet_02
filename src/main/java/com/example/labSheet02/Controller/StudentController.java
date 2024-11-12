@@ -28,6 +28,11 @@ public class StudentController {
         return studentServiceInstance.getAllStudents();
     }
 
+    @GetMapping("/SMS/students/{year}")
+    public List<Student> getByYear(@PathVariable int year){
+        return studentServiceInstance.getStudentByYear(year);
+    }
+
     @PostMapping("/SMS/add")
     public ResponseEntity<Student> addStudent(@RequestBody Student newStudent){
         return new ResponseEntity<>(studentServiceInstance.addStudent(newStudent),HttpStatus.CREATED);

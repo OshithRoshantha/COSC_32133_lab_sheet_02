@@ -23,6 +23,10 @@ public class StudentServiceImpl implements StudentService{
         return studentRepoInstance.findById(id).get();
     }
 
+    public List<Student> getStudentByYear(int year){
+        return studentRepoInstance.findByYearOfEnrollment(year);
+    }
+
     public Student updateStudent(long id,Student updatedStudent){
         Student matchedStudent=studentRepoInstance.findById(id).get();
         matchedStudent.setFirstName(updatedStudent.getFirstName());

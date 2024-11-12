@@ -10,4 +10,5 @@ public interface StudentService {
     Student updateStudent(long id,Student updatedStudent);
     void removeStudent(long id);
     List<Student> getAllStudents();
+    List<Student> getStudentByYear(int year);
 }

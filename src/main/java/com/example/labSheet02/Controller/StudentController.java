@@ -39,7 +39,7 @@ public class StudentController {
     }
 
     @DeleteMapping("/SMS/unenroll/{year}")
-    public ResponseEntity<String> unenrollByYear(int year){
+    public ResponseEntity<String> unenrollByYear(@PathVariable int year){
         return new ResponseEntity<>("Unenrolled!",HttpStatus.OK);
     }
 

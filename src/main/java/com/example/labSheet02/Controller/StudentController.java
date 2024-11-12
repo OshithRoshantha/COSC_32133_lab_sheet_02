@@ -28,6 +28,21 @@ public class StudentController {
         return studentServiceInstance.getAllStudents();
     }
 
+    @GetMapping("/SMS/students/{year}")
+    public List<Student> getByYear(@PathVariable int year){
+        return studentServiceInstance.getStudentByYear(year);
+    }
+
+    @GetMapping("/SMS/department/{id}")
+    public ResponseEntity<String> searchDepartmentById(@PathVariable long id){
+        return new ResponseEntity<>(studentServiceInstance.departmentById(id),HttpStatus.FOUND);
+    }
+
+    @DeleteMapping("/SMS/unenroll/{year}")
+    public ResponseEntity<String> unenrollByYear(@PathVariable int year){
+        return new ResponseEntity<>("Unenrolled!",HttpStatus.OK);
+    }
+
     @PostMapping("/SMS/add")
     public ResponseEntity<Student> addStudent(@RequestBody Student newStudent){
         return new ResponseEntity<>(studentServiceInstance.addStudent(newStudent),HttpStatus.CREATED);

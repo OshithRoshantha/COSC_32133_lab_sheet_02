@@ -23,6 +23,14 @@ public class StudentServiceImpl implements StudentService{
         return studentRepoInstance.findById(id).get();
     }
 
+    public List<Student> getStudentByYear(int year){
+        return studentRepoInstance.findByYearOfEnrollment(year);
+    }
+
+    public String departmentById(long id){
+        return  studentRepoInstance.findDepartmentById(id);
+    }
+
     public Student updateStudent(long id,Student updatedStudent){
         Student matchedStudent=studentRepoInstance.findById(id).get();
         matchedStudent.setFirstName(updatedStudent.getFirstName());
@@ -32,6 +40,10 @@ public class StudentServiceImpl implements StudentService{
         matchedStudent.setYearOfEnrollment(updatedStudent.getYearOfEnrollment());
         studentRepoInstance.save(matchedStudent);
         return matchedStudent;
+    }
+
+    public void removeByYear(int year){
+        studentRepoInstance.removeEnrollments(year);
     }
 
     public void removeStudent(long id){
